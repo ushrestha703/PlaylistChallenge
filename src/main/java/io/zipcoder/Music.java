@@ -2,53 +2,46 @@ package io.zipcoder;
 
 import com.sun.deploy.security.SelectableSecurityManager;
 
-public class Music
-{
+public class Music {
 
     private String[] playList;
 
-    public Music(String[] playList){
+    public Music(String[] playList) {
 
         this.playList = playList;
     }
 
-    public Integer selection(Integer startIndex, String selection)
-    {
+    public Integer selection(Integer startIndex, String selection) {
 
-        int nextSong = 0;
-        int previousSong = 0;
-        int Index = 0;
+        int goDown = 0;
+        int goUp = 0;
 
-        for (int i = 0; i < playList.length; i++)
-        {
-            if ( selection == playList[i])
-            {
-                Index = i;
+        for (int i = startIndex; i < playList.length; i++) {
+            if (playList[i].equals(selection))
+                break;
+            if (i + 1 > playList.length)
+                i = -1;
+            goDown++;
+        }
 
-                if (Index > startIndex)
-                {
-                    nextSong = Index - startIndex;
-                    if (Index < playList.length - 1)
-                    {
-                    previousSong = playList.length - 1 - Index;
-                    }
-                }
-             }
-          }
-                if (nextSong > previousSong && previousSong != 0)
-                 {
-                        return previousSong;
-                 }
-                else
-                 {
-                        return nextSong;
+        for (int i = startIndex; i < playList.length; i--) {
+            if (playList[i].equals(selection))
+                break;
+            if (i - 1 < 0)
+                i = playList.length;
+            goUp++;
+        }
 
-                 }
-
+        if (goDown < goUp) {
+            return goDown;
+        }
+        return goUp;
 
     }
 
-
 }
+
+
+
 
 
