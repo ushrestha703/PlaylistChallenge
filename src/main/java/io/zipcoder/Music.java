@@ -17,16 +17,16 @@ public class Music {
         int goUp = 0;
 
         for (int i = startIndex; i < playList.length; i++) {
-            if (playList[i].equals(selection))
+           if (playList[i].equals(selection))
                 break;
             if (i + 1 > playList.length)
-                i = -1;
+               i = -1;
             goDown++;
         }
 
         for (int i = startIndex; i < playList.length; i--) {
             if (playList[i].equals(selection))
-                break;
+               break;
             if (i - 1 < 0)
                 i = playList.length;
             goUp++;

@@ -34,9 +34,9 @@ public class MusicTest {
 
         String[] playlist = {"A","B","C","D","E"};
         Music music = new Music(playlist);
-        Integer startingIndex = 1;
-        String selection = "E";
-        Integer expected = 2;
+        Integer startingIndex = 2;
+        String selection = "B";
+        Integer expected = 1;
         Integer actual = music.selection(startingIndex, selection);
         Assert.assertEquals(expected, actual);
     }
