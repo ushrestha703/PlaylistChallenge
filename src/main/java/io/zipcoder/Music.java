@@ -36,7 +36,6 @@ public class Music {
         return goUp;
     }
     */
-        */
 
 
     //another method;
